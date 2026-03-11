@@ -1,13 +1,723 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>AGUASSAN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGUASSAN | Especialistas en Control de Calidad del Agua</title>
+    <meta name="description" content="AGUASSAN: Especialistas en muestreo, análisis y caracterización físico-química y microbiológica de agua. Equipos, reactivos y sistemas para tratamiento de agua.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Library for Scroll Animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #0891b2;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #0ea5e9, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+        }
+        
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+        
+        .water-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        
+        .water-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        
+        .water-wave .shape-fill {
+            fill: #f8fafc;
+        }
+        
+        .navbar-scroll {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="https://huggingface.co/spaces/LeonGarra/deepsite-project-meh6d/resolve/main/images/imagen_2026-03-10_221414417.png" 
+                         alt="AGUASSAN Logo" 
+                         class="h-12 w-auto">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="font-medium hover:text-primary transition-colors">Inicio</a>
+                    <a href="#about" class="font-medium hover:text-primary transition-colors">Empresa</a>
+                    <a href="#services" class="font-medium hover:text-primary transition-colors">Servicios</a>
+                    <a href="#products" class="font-medium hover:text-primary transition-colors">Productos</a>
+                    <a href="#contact" class="font-medium hover:text-primary transition-colors">Contacto</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg rounded-b-lg">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="font-medium hover:text-primary transition-colors py-2">Inicio</a>
+                    <a href="#about" class="font-medium hover:text-primary transition-colors py-2">Empresa</a>
+                    <a href="#services" class="font-medium hover:text-primary transition-colors py-2">Servicios</a>
+                    <a href="#products" class="font-medium hover:text-primary transition-colors py-2">Productos</a>
+                    <a href="#contact" class="font-medium hover:text-primary transition-colors py-2">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<body>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://huggingface.co/spaces/LeonGarra/deepsite-project-meh6d/resolve/main/images/imagen_2026-03-10_221208570.png" alt="Análisis de agua profesional" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-blue-900/60"></div>
+        </div>
+        
+        <!-- Water Wave Divider -->
+        <div class="water-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 relative z-10" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+                    Especialistas en muestreo, análisis y caracterización físico-química y microbiológica de agua.
+                </h1>
+                <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                    Especialistas en muestreo, análisis y caracterización físico-química y microbiológica de agua, y en la comercialización de insumos, reactivos, equipos de medición y materiales para control de calidad y sistemas de agua potable y saneamiento.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="btn-primary text-white font-medium py-3 px-8 rounded-lg inline-block">
+                        Solicitar Análisis
+                    </a>
+                    <a href="#services" class="bg-white text-primary font-medium py-3 px-8 rounded-lg inline-block hover:bg-gray-100 transition-colors">
+                        Ver Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <a href="#about" class="text-white">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
 
-<h1>Hola usuario</h1>
-<p>Bienvenido</p>
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-800 mb-6">
+                            Nuestra <span class="text-gradient">Experiencia</span> en Calidad del Agua
+                        </h2>
+                        <div class="space-y-4 text-gray-600">
+                            <p>
+                                AGUASSAN es una empresa especializada en muestreo, análisis y caracterización físico-química y microbiológica de agua. Contamos con acreditación ISO/IEC 17025 y personal técnico certificado para garantizar resultados trazables y confiables.
+                            </p>
+                            <p>
+                                Distribuimos insumos y reactivos para control de calidad como hipoclorito de calcio, DPD y afines. Además, suministramos equipos de medición, materiales hidráulicos, fontanería y productos para sistemas de agua potable y saneamiento.
+                            </p>
+                            <p>
+                                Nuestra misión es garantizar la calidad del agua mediante servicios analíticos confiables y soluciones técnicas integrales para el tratamiento, distribución y saneamiento de agua, contribuyendo a la salud pública y protección ambiental.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3">
+                                    <i data-lucide="check-circle" class="text-primary w-5 h-5"></i>
+                                </div>
+                                <span class="font-medium">Certificaciones ISO</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3">
+                                    <i data-lucide="check-circle" class="text-primary w-5 h-5"></i>
+                                </div>
+                                <span class="font-medium">15+ Años de Experiencia</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3">
+                                    <i data-lucide="check-circle" class="text-primary w-5 h-5"></i>
+                                </div>
+                                <span class="font-medium">Equipos de Última Tecnología</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3">
+                                    <i data-lucide="check-circle" class="text-primary w-5 h-5"></i>
+                                </div>
+                                <span class="font-medium">Acreditación ISO 17025</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-left" class="relative">
+                        <div class="rounded-xl overflow-hidden shadow-2xl">
+                            <img src="http://static.photos/technology/640x360/12" alt="Tecnología de análisis de agua" class="w-full h-auto">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
+                            <div class="flex items-center mb-2">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center">
+                                    <i data-lucide="beaker" class="text-white w-6 h-6"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-bold text-xl">+25,000</h3>
+                                    <p class="text-gray-600">Muestras Analizadas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Nuestros <span class="text-gradient">Servicios</span> Especializados
+                </h2>
+                <p class="text-gray-600">
+                    Ofrecemos una gama completa de servicios para garantizar la calidad del agua en todos los sectores: industrial, municipal y agrícola.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-6">
+                        <i data-lucide="test-tube" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-800 mb-4">Muestreo de Agua</h3>
+                    <p class="text-gray-600 mb-6">
+                        Recolección de muestras según normas técnicas, asegurando la representatividad y preservación para análisis posteriores.
+                    </p>
+                    <a href="#contact" class="text-primary font-medium flex items-center">
+                        Más información
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-6">
+                        <i data-lucide="flask-conical" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-800 mb-4">Análisis Físico-Químico</h3>
+                    <p class="text-gray-600 mb-6">
+                        Determinación de parámetros como pH, turbiedad, conductividad, cloro residual, metales pesados y compuestos orgánicos.
+                    </p>
+                    <a href="#contact" class="text-primary font-medium flex items-center">
+                        Más información
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-6">
+                        <i data-lucide="microscope" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-800 mb-4">Análisis Microbiológico</h3>
+                    <p class="text-gray-600 mb-6">
+                        Detección e identificación de microorganismos patógenos como coliformes, E. coli y otros indicadores de contaminación.
+                    </p>
+                    <a href="#contact" class="text-primary font-medium flex items-center">
+                        Más información
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-xl p-6 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="text-white w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-800 mb-4">Control de Calidad del Agua</h3>
+                    <p class="text-gray-600 mb-6">
+                        Análisis de la calidad del agua según parámetros físicos, químicos y microbiológicos, conforme a los ECA, LMP y normativa vigente.
+                    </p>
+                    <a href="#contact" class="text-primary font-medium flex items-center">
+                        Más información
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-800 mb-4">
+                    Productos para <span class="text-gradient">Control de Calidad</span>
+                </h2>
+                <p class="text-gray-600">
+                    Ofrecemos una amplia gama de insumos, reactivos y equipos especializados para el análisis y tratamiento del agua.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Hipoclorito de Calcio</h3>
+                            <p class="text-gray-600">Desinfectante para tratamiento de agua en sistemas de potabilización y piscinas.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
+                            <i data-lucide="droplet" class="text-primary w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="package" class="w-4 h-4 mr-2"></i>
+                        <span>Presentaciones: Granulado, tabletas</span>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Reactivos DPD</h3>
+                            <p class="text-gray-600">Reactivos DPD para determinación colorimétrica de cloro libre, combinado y total en análisis de agua potable y residual.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
+                            <i data-lucide="flask-round" class="text-primary w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="package" class="w-4 h-4 mr-2"></i>
+                        <span>Kits completos para análisis</span>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Equipos de Medición</h3>
+                            <p class="text-gray-600">Equipos de medición: pH-metros, conductímetros, turbidímetros, espectrofotómetros, analizadores multiparamétricos, colorímetros y equipos de cloración, filtración y tratamiento de agua.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
+                            <i data-lucide="settings" class="text-primary w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="package" class="w-4 h-4 mr-2"></i>
+                        <span>Calibración y mantenimiento incluido</span>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Materiales Hidráulicos</h3>
+                            <p class="text-gray-600">Materiales hidráulicos: tuberías, válvulas, conexiones, accesorios y componentes para sistemas de agua potable y saneamiento.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
+                            <i data-lucide="pipe" class="text-primary w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="package" class="w-4 h-4 mr-2"></i>
+                        <span>PVC, CPVC, Polietileno, Acero</span>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Productos para Tratamiento</h3>
+                            <p class="text-gray-600">Sistemas de tratamiento: filtros multimedia, suavizadores, ozonizadores, sistemas UV, plantas de ósmosis inversa y equipos para potabilización.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
+                            <i data-lucide="filter" class="text-primary w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="package" class="w-4 h-4 mr-2"></i>
+                        <span>Soluciones personalizadas</span>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Reactivos Afines</h3>
+                            <p class="text-gray-600">Reactivos para análisis de metales, nutrientes, compuestos orgánicos, aniones, cationes y parámetros específicos según métodos estándar.</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center">
+                            <i data-lucide="beaker" class="text-primary w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i data-lucide="package" class="w-4 h-4 mr-2"></i>
+                        <span>Grado analítico y técnico</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="py-16 bg-gradient-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
+                    Síguenos en <span class="text-white">Redes Sociales</span>
+                </h2>
+                <p class="text-blue-100">
+                    Conéctate con nosotros para información técnica, actualizaciones normativas, webinars especializados y casos de estudio en calidad del agua.
+                </p>
+            </div>
+            
+            <div class="flex justify-center space-x-6 md:space-x-10">
+                <a href="#" class="w-14 h-14 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors" data-aos="zoom-in" data-aos-delay="100">
+                    <i data-lucide="facebook" class="text-white w-7 h-7"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors" data-aos="zoom-in" data-aos-delay="200">
+                    <i data-lucide="instagram" class="text-white w-7 h-7"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors" data-aos="zoom-in" data-aos-delay="300">
+                    <i data-lucide="youtube" class="text-white w-7 h-7"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors" data-aos="zoom-in" data-aos-delay="400">
+                    <i data-lucide="linkedin" class="text-white w-7 h-7"></i>
+                </a>
+                <a href="#" class="w-14 h-14 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors" data-aos="zoom-in" data-aos-delay="500">
+                    <i data-lucide="message-circle" class="text-white w-7 h-7"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div data-aos="fade-right">
+                        <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-800 mb-6">
+                            Contáctanos para <span class="text-gradient">Soluciones Personalizadas</span>
+                        </h2>
+                        <p class="text-gray-600 mb-8">
+                            ¿Necesitas análisis de agua, asesoría técnica o cotización de productos? Completa el formulario y nuestro equipo de especialistas se pondrá en contacto contigo en menos de 24 horas.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mr-4">
+                                    <i data-lucide="phone" class="text-primary w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Teléfono</h4>
+                                    <p class="text-gray-600">+52 (55) 1234-5678</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mr-4">
+                                    <i data-lucide="mail" class="text-primary w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">contacto@aguassan.com.mx</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mr-4">
+                                    <i data-lucide="map-pin" class="text-primary w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Dirección</h4>
+                                    <p class="text-gray-600">Av. Calidad del Agua 456, Col. Industrial, CDMX, 07890</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-left">
+                        <div class="bg-white rounded-xl shadow-lg p-8">
+                            <h3 class="font-heading font-bold text-2xl text-gray-800 mb-6">Enviar Mensaje</h3>
+                            <form id="contactForm" class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Nombre Completo</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="Tu nombre" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Correo Electrónico</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="ejemplo@email.com" required>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
+                                    <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition" placeholder="Describa su requerimiento técnico, tipo de análisis o productos de interés..." required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary text-white font-medium py-3 px-8 rounded-lg w-full">
+                                    Enviar Mensaje
+                                    <i data-lucide="send" class="w-4 h-4 inline ml-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="https://huggingface.co/spaces/LeonGarra/deepsite-project-meh6d/resolve/main/images/imagen_2026-03-10_221414417.png" 
+                             alt="AGUASSAN Logo" 
+                             class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-400">
+                        AGUASSAN: Especialistas en análisis y control de calidad del agua. Servicios de laboratorio, insumos y equipos para tratamiento de agua.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold text-white text-lg mb-6">Servicios</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="hover:text-primary transition-colors">Muestreo de Agua</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors">Análisis Físico-Químico</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors">Análisis Microbiológico</a></li>
+                        <li><a href="#services" class="hover:text-primary transition-colors">Control de Calidad</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold text-white text-lg mb-6">Productos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#products" class="hover:text-primary transition-colors">Hipoclorito de Calcio</a></li>
+                        <li><a href="#products" class="hover:text-primary transition-colors">Reactivos DPD</a></li>
+                        <li><a href="#products" class="hover:text-primary transition-colors">Equipos de Medición</a></li>
+                        <li><a href="#products" class="hover:text-primary transition-colors">Materiales Hidráulicos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold text-white text-lg mb-6">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 mt-1"></i>
+                            <span>Av. Calidad del Agua 456, Col. Industrial, CDMX</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+52 (55) 1234-5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                            <span>contacto@aguassan.com.mx</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    &copy; 2024 AGUASSAN. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">Política de Privacidad</a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition-colors">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true,
+            easing: 'ease-in-out',
+        });
+        
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                lucide.createIcons();
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scroll');
+            } else {
+                navbar.classList.remove('navbar-scroll');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just show an alert
+            alert(`¡Gracias ${name}! AGUASSAN ha recibido su solicitud. Nuestro equipo técnico se pondrá en contacto al correo ${email} en menos de 24 horas hábiles.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
 </body>
 </html>
